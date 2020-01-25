@@ -10,6 +10,35 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
- *= require_self
  */
+
+#nav_top {
+	max-height: 35px;
+}
+
+.navbar-brand {
+	margin-top: -18px;
+}
+
+.user-actions a {
+	margin-top: -20px;
+	color: #17a2b8 !important;
+}
+
+.nav-icon {
+	color: white;
+}
+
+.nav-link {
+	border-right: 1px solid white;
+}
+
+#navbarNav {
+	// height: 60px;
+}
+
+// #new:hover {
+// 	color: orange;
+// }
