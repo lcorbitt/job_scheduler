@@ -42,10 +42,10 @@
 
     <header class="">
       <nav class="navbar bg-light" id="nav_top">
-        <a class="navbar-brand" href="#" style="color: black;">Job Scheduler</a>
+        <a class="navbar-brand" href="/" style="color: black;">Job Scheduler</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <p class="nav-item" style="border-style: none; color: #17a2b8 !important">Company Name</p>
+              <p class="navbar-text ml-3" style="color: #17a2b8 !important">Dalton Roofing</p>
             </li>
         </ul>
         <div class="">
@@ -54,57 +54,32 @@
             <%= link_to "Login", new_user_session_path, class:"btn btn-default mr-1" %>
             <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-default" %>
             <% else %>
-            <%= link_to "Current User Name", meetings_path, class: "btn btn-default mr-1" %>
-            <%
-=begin%>
- <%= link_to "Schedule new session", new_meeting_path, class: "btn btn-default mr-2" unless admin? %> 
-<%
-=end%>
+            <a class="btn btn-default mr-1 nav-item"><%= current_user.name  %></a>
             <%
 =begin%>
  <%= link_to "Users", users_path, class: "btn btn-default mr-2" if admin? %> 
 <%
 =end%>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-default mr-2" %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-default mr-2 nav-item" %>
             <% end %>
           </div>
         </div>
       </nav>
-      <nav class="navbar navbar-expand-lg bg-info pl-2" style="padding: 0;">
+      <nav class="navbar navbar-expand-lg bg-info" style="padding: 0;">
         <button class="navbar-toggler" style="color: white; border-color: white;" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <div class="dropdown">
-              <li class="nav-item">
-                  <a class="nav-link dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
-                    New<i class="fa fa-plus ml-2 mr-1 nav-icon"></i>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button">Lead</button>
-                    <div class="dropdown-divider"></div>
-                  </div>
-              </li>
-            </div>
-            <li class="nav-item" style="background-color: orange;">
-              <%= link_to dashboard_path, class: "nav-link" do %>
-                <p style="color: white;">Dashboard<i class="fa fa-tachometer ml-2 mr-1 nav-icon" aria-hidden="true"></i></p>
+            <li class="nav-item nav-action">
+              <%= link_to new_meeting_path, class: "nav-link", style: "color:white;" do %>
+                <p class="nav-text ml-1">New Lead<i class="fa fa-plus ml-1 mr-1"></i></p>
               <% end %>
-              <%
-=begin%>
- <a class="nav-link" href="#" style="background-color: orange; color: white;">Dashboard<i class="fa fa-tachometer ml-2 mr-1 nav-icon" aria-hidden="true"></i></a> 
-<%
-=end%>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Leads<i class="fa fa-user ml-2 mr-1 nav-icon" aria-hidden="true"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Jobs<i class="fa fa-briefcase ml-2 mr-1 nav-icon" aria-hidden="true"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Directory<i class="fa fa-address-book ml-2 mr-1 nav-icon" aria-hidden="true"></i></a>
+            <li class="nav-item nav-action">
+              <%= link_to dashboard_path, class: "nav-link", style: "color:white;" do %>
+                <p class="nav-text ml-1">Dashboard<i class="fa fa-tachometer ml-1 mr-1 nav-icon" aria-hidden="true"></i></p>
+              <% end %>
             </li>
           </ul>
         </div>
@@ -114,5 +89,15 @@
     <main>
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
+    <script>
+      $(document).ready(function(){
+
+        $(".nav-action").hover(function(){
+            $(this).toggleClass('bg-orange');
+        });
+
+      });
+    </script>
   </body>
 </html>
+

@@ -15,11 +15,17 @@
  */
 
 #nav_top {
-	max-height: 35px;
+	height: 45px;
+	margin-top: -8px;
+}
+
+.nav-text {
+	margin-bottom: 8px;
+	margin-top: 8px;
 }
 
 .navbar-brand {
-	margin-top: -18px;
+	margin-bottom: 18px;
 }
 
 .user-actions a {
@@ -39,6 +45,10 @@
 	// height: 60px;
 }
 
-// #new:hover {
-// 	color: orange;
-// }
+.bg-orange {
+	background-color: orange;
+}
+
+.nav-action:active {
+	color: orange;
+}
