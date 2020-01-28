@@ -41,14 +41,38 @@
 	border-right: 1px solid white;
 }
 
-#navbarNav {
-	// height: 60px;
-}
-
 .bg-orange {
 	background-color: orange;
 }
 
+.text-orange {
+	color: orange;
+}
+
+.text-red {
+	color: red;
+}
+
 .nav-action:active {
 	color: orange;
+}
+
+.img-md {
+	height: 150px;
+}
+
+.div-center {
+	margin: 0 auto;
+}
+
+.width-50 {
+	width: 50%;
+}
+
+.width-40 {
+	width: 40%;
+}
+
+.btn-primary {
+	color: white;
 }

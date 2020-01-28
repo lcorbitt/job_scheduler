@@ -41,6 +41,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'pry-rails', '~> 0.3.4'
 end
 
 group :test do
@@ -61,3 +63,4 @@ gem 'tailwindcss', '~> 1.0', '>= 1.0.3'
 gem 'simple_calendar', '~> 2.3'
 # gem 'trix', '~> 0.11.1'
 gem 'stripe', '~> 5.14'
+# gem 'mysql2', '~> 0.5.2'

@@ -1,0 +1,69 @@
+    <div class="card mt-3" style="border-top: 3px solid #17a2b8;">
+      <div class="card-header text-dark">
+        <h4 class="d-inline">Lead Information</h4>
+      </div>
+      <div class="card-group">
+        <div class="card-body">
+          <div class="form-group">
+            <%= form_with(model: lead, local: true) do |form| %>
+              <% if lead.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
+
+                  <ul>
+                    <% lead.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <div class="row">
+                <div class="field col-6">
+                  <%= form.label :first_name %>
+                  <%= form.text_field :first_name, required: true, :class => "form-control" %>
+                </div>
+
+                <div class="field col-6">
+                  <%= form.label :last_name %>
+                  <%= form.text_field :last_name, required: true, :class => "form-control" %>
+                </div>
+              </div>
+
+              <div class="field">
+                <%= form.label :company_name %>
+                <%= form.text_field :company_name, :class => "form-control" %>
+              </div>
+
+              <div class="row">
+                <div class="field col-6">
+                  <%= form.label :phone %>
+                  <%= form.text_field :phone, :class => "form-control" %>
+                </div>
+
+                <div class="field col-6">
+                  <%= form.label :email %>
+                  <%= form.text_field :email, :class => "form-control" %>
+                </div>
+              </div>
+
+              <div class="field">
+                <%= form.label :address %>
+                <%= form.text_field :address, :class => "form-control" %>
+              </div>
+
+              <div class="field">
+                <%= form.label :notes %>
+                <%= form.text_area :notes, :class => "form-control" %>
+              </div>
+
+              <%= form.hidden_field :user_id, value: current_user.id %>
+
+              <div class="actions col-4 div-center" style="width: 50%;">
+                <%= form.submit 'Save', :class => "form-control btn btn-success mt-3" %>
+              </div>
+            <% end %>
+          <div>
+        </div>
+      </div>
+    </div>
+  </div>

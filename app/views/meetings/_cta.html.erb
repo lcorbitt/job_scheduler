@@ -1,0 +1,10 @@
+<div class="card text-center ml-5 mr-5">
+  <div class="card-header" style="background-color: white;">
+    <%= image_tag("calendar.png", class: "img-md") %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">It looks like you don't have any meetings scheduled.</h5>
+        <%= link_to "Schedule a New Meeting", new_meeting_path, class:"btn btn-primary my-3 text-white" %>
+  </div>
+
+</div>

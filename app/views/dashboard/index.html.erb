@@ -7,14 +7,17 @@
             <div class="card mt-3" style="border-top: 3px solid #17a2b8;">
                 <div class="card-header text-dark">
                     <h4 class="d-inline">Current Pipeline</h4>
-                    <p class="d-inline float-right text-dark" style="margin-bottom: 0;">Active jobs: 120</p>
+                    <p class="d-inline float-right text-dark" style="margin-bottom: 0;">Active jobs: <%= @all_leads.count %></p>
                 </div>
                 <div class="card-group">
                     <div class="card">
-                        <div class="card-body">
-                        <h5 class="card-title text-center"><span class="badge badge-pill badge-warning" style="color: white;">L</span>      
-                        </h5>
-                        <h5 class="card-text text-center">8</h5>
+                        <%= link_to leads_path do %>
+                            <div class="card-body">
+                            <h5 class="card-title text-center"><span class="badge badge-pill badge-warning" style="color: white;">L</span>      
+                            </h5>
+                            <h5 class="card-text text-center">              
+                            <%= @leads.count %></h5>
+                        <% end %>
                         </div>
                         <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
@@ -24,7 +27,7 @@
                         <div class="card-body">
                         <h5 class="card-title text-center"><span class="badge badge-pill badge-primary" style="background-color: orange;">P</span>      
                         </h5>
-                        <h5 class="card-text text-center">32</h5>
+                        <h5 class="card-text text-center"><%= @prospects.count %></h5>
                         </div>
                         <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
@@ -34,7 +37,7 @@
                         <div class="card-body">
                         <h5 class="card-title text-center"><span class="badge badge-pill badge-success">A</span>      
                         </h5>
-                        <h5 class="card-text text-center">23</h5>
+                        <h5 class="card-text text-center"><%= @approved.count %></h5>
                         </div>
                         <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
@@ -44,7 +47,7 @@
                         <div class="card-body">
                         <h5 class="card-title text-center"><span class="badge badge-pill badge-info">C</span>      
                         </h5>
-                        <h5 class="card-text text-center">9</h5>
+                        <h5 class="card-text text-center"><%= @completed.count %></h5>
                         </div>
                         <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
@@ -54,7 +57,7 @@
                         <div class="card-body">
                         <h5 class="card-title text-center"><span class="badge badge-pill badge-danger">I</span>      
                         </h5>
-                        <h5 class="card-text text-center">48</h5>
+                        <h5 class="card-text text-center"><%= @invoiced.count %></h5>
                         </div>
                         <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>

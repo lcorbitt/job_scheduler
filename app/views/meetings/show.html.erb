@@ -1,5 +1,21 @@
-<p id="notice"><%= notice %></p>
-
+<div class="row m-2" style="border-bottom: 1px solid lightgray">
+  <div class="col-1 text-center" style="border-right: 1px solid lightgray">
+    <%= link_to :back, :class => "icon" do %>
+      <i class="fa fa-angle-left fa-3x text-dark" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <div class="col-4 text-center" style="border-right: 1px solid lightgray">
+    <h4><%= @meeting.user_id %></h4>
+    <small><%= @meeting.user_id %></small>
+  </div>
+  <div class="col-2 text-center" style="border-right: 1px solid lightgray">
+    <p>Job Priority:</p>
+  <strong>Normal</strong>
+  </div>
+  <div class="col-5 text-center pt-3">
+    <p><%= current_user.name %>
+  </div>
+</div>
 <p>
   <strong>Name:</strong>
   <%= @meeting.name %>

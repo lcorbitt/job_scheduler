@@ -1,0 +1,28 @@
+<%= form_for([@lead, @lead.comments.build]) do |form| %>
+  <% if @lead.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lead.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% @lead.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group mt-2">
+    <%= form.text_area :body, :class => "form-control", :placeholder => "New comment..." %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%
+=begin%>
+ <%= form.hidden_field :lead_id, value: @lead.id %> 
+<%
+=end%>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,147 @@
+<div class="row" style="border-bottom: 1px solid lightgray">
+  <div class="col-1 text-center" style="border-right: 1px solid lightgray">
+    <%= link_to :back, :class => "icon" do %>
+      <i class="fa fa-angle-left fa-3x text-dark" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <div class="col-6 text-center" style="border-right: 1px solid lightgray">
+    <h4><%= full_name(@lead) %></h4>
+    <small><%= @lead.email %></small>
+  </div>
+  <div class="col-2 text-center" style="border-right: 1px solid lightgray">
+    <p>Priority:</p>
+  <strong>Normal</strong>
+  </div>
+  <div class="col-3 text-center pt-3">
+    <p><%= full_name(current_user) %>
+  </div>
+</div>
+<% unless @lead.status == 5 %>
+  <div class="container"> 
+    <div class="card mt-4">
+      <div class="card-header text-dark" style="border-color: orange">
+        <p class="d-inline text-dark"><strong class="text-orange">NEXT STEP:</strong> <%= next_step(@lead.status) %></p>
+        <div class="actions col-4 div-center" style="width: 50%;">
+          <%= form_with(model: @lead, :method => :put) do |f| %>
+            <%= f.hidden_field :status, :value => @lead.status + 1 %>
+            <%= f.submit "Convert", :class => "form-control btn btn-success mt-3" %>
+          <% end %> 
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="container">
+  <div class="card mt-4">
+    <div class="card-header text-dark">
+      <h5 class="d-inline">Lead Activity</h5>
+      <small class="d-inline float-right text-dark mt-1">Last updated: <strong><%= @lead.updated_at %></strong></small>
+    </div>
+    <div class="card-group">
+      <div class="card">
+        <div class="card-body">
+        <p class="text-info d-inline">Status</p>
+        <h5 class="d-inline text-orange float-right"><%= readable_status(@lead.status) %></h5>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+        <p class="text-info d-inline">Comments</p>
+        <h5 class="d-inline text-orange float-right"><%= @lead.comments.count %></h5>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+        <p class="text-info d-inline">Contract</p>
+        <h5 class="d-inline text-red float-right">No</h5>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+        <p class="text-info d-inline">Orders</p>
+        <h5 class="d-inline text-orange float-right">2</h5>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+        <p class="text-info d-inline">Photos</p>
+        <h5 class="d-inline text-red float-right">0</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="mt-4 col-sm">
+      <div class="card-header text-dark">
+        <h5 class="d-inline">Contact Info</h5>
+        <%= link_to edit_lead_path(@lead) do %>
+          <p class="d-inline float-right mb-0 mt-1">Edit<i class="fa fa-pencil-square ml-2" aria-hidden="true"></i></p>
+        <% end %>
+      </div>
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body p-0 ml-3">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="row">Name:</th>
+                <td><%= full_name(@lead) %></td>
+              </tr>
+              <tr>
+                <th class="row">Company:</th>
+                <td><%= @lead.company_name %></td>
+              </tr>
+              <tr>
+                <th class="row">Phone:</th>
+                <td><%= @lead.phone %></td>
+              </tr>
+              <tr>
+                <th class="row">Email:</th>
+                <td><%= @lead.email %></td>
+              </tr><tr>
+                <th class="row">Address:</th>
+                <td><%= @lead.address %></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 col-sm">
+      <div class="card-header text-dark">
+        <h5 class="d-inline">Notes</h5>
+      </div>
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body p-0 ml-3">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><%= @lead.notes %></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section comments">
+    <div class="container mt-3">
+        <h4 class="subtitle is-5">Comments</h4>
+        <%= render @lead.comments %>
+        <div class="comment-form">
+        <%= render 'comments/form' %>
+        </div>
+    </div>
+</section>
+
+<%= link_to 'Edit', edit_lead_path(@lead) %> |
+<%= link_to 'Back', leads_path %>
