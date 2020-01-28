@@ -19,7 +19,7 @@ module ApplicationHelper
         when 1
             "Prospect"
         when 2
-            "Approved Job"
+            "Approved"
         when 3
             "Completed"
         when 4

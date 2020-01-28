@@ -1,18 +1,18 @@
 <div class="row" style="border-bottom: 1px solid lightgray">
-  <div class="col-1 text-center" style="border-right: 1px solid lightgray">
-    <%= link_to :back, :class => "icon" do %>
+  <div class="col-1 text-center pt-1" style="border-right: 1px solid lightgray">
+    <%= link_to leads_path, :class => "icon" do %>
       <i class="fa fa-angle-left fa-3x text-dark" aria-hidden="true"></i>
     <% end %>
   </div>
-  <div class="col-6 text-center" style="border-right: 1px solid lightgray">
+  <div class="col-6 text-center pt-2 pb-2" style="border-right: 1px solid lightgray">
     <h4><%= full_name(@lead) %></h4>
     <small><%= @lead.email %></small>
   </div>
-  <div class="col-2 text-center" style="border-right: 1px solid lightgray">
+  <div class="col-2 text-center pt-1" style="border-right: 1px solid lightgray">
     <p>Priority:</p>
   <strong>Normal</strong>
   </div>
-  <div class="col-3 text-center pt-3">
+  <div class="col-3 text-center pt-4">
     <p><%= full_name(current_user) %>
   </div>
 </div>
@@ -21,7 +21,7 @@
     <div class="card mt-4">
       <div class="card-header text-dark" style="border-color: orange">
         <p class="d-inline text-dark"><strong class="text-orange">NEXT STEP:</strong> <%= next_step(@lead.status) %></p>
-        <div class="actions col-4 div-center" style="width: 50%;">
+        <div class="actions col-4 div-center width-50">
           <%= form_with(model: @lead, :method => :put) do |f| %>
             <%= f.hidden_field :status, :value => @lead.status + 1 %>
             <%= f.submit "Convert", :class => "form-control btn btn-success mt-3" %>
@@ -79,7 +79,7 @@
       <div class="card-header text-dark">
         <h5 class="d-inline">Contact Info</h5>
         <%= link_to edit_lead_path(@lead) do %>
-          <p class="d-inline float-right mb-0 mt-1">Edit<i class="fa fa-pencil-square ml-2" aria-hidden="true"></i></p>
+          <p class="d-inline float-right mb-0 mt-1 text-dark">Edit<i class="fa fa-pencil-square ml-2" aria-hidden="true"></i></p>
         <% end %>
       </div>
       <div class="card-group">

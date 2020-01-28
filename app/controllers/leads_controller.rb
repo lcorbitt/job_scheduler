@@ -57,7 +57,7 @@ class LeadsController < ApplicationController
   def destroy
     @lead.destroy
     respond_to do |format|
-      format.html { redirect_to leads_url, notice: 'Lead was successfully destroyed.' }
+      format.html { redirect_to leads_url, notice: 'Lead was successfully deleted.' }
       format.json { head :no_content }
     end
   end

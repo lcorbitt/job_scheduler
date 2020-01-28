@@ -16,13 +16,8 @@
   </div>
 
   <%= form.hidden_field :user_id, value: current_user.id %>
-  <%
-=begin%>
- <%= form.hidden_field :lead_id, value: @lead.id %> 
-<%
-=end%>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions div-center width-30">
+    <%= form.submit 'Add Comment', :class => 'form-control btn btn-success' %>
   </div>
 <% end %>
