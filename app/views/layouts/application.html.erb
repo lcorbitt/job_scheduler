@@ -43,11 +43,13 @@
     <header>
       <nav class="navbar bg-light" id="nav_top">
         <a class="navbar-brand" href="/" style="color: black;">Job Scheduler</a>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <p class="navbar-text ml-3" style="color: #17a2b8 !important">Dalton Roofing</p>
-            </li>
-        </ul>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <p class="navbar-text ml-3" style="color: #17a2b8 !important">Team Name</p>
+              </li>
+          </ul>
+        <% end %>
         <div class="">
           <div class="user-actions">
             <% unless user_signed_in? %>
@@ -83,7 +85,7 @@
             </li>
             <li class="nav-item nav-action">
               <%= link_to meetings_path, class: "nav-link", style: "color:white;" do %>
-                <p class="nav-text ml-1">Meetings<i class="fa fa-user ml-2 mr-1 nav-icon" aria-hidden="true"></i></p>
+                <p class="nav-text ml-1">Meetings<i class="fa fa-calendar ml-2 mr-1 nav-icon" aria-hidden="true"></i></p>
               <% end %>
             </li>
             <li class="nav-item nav-action">
